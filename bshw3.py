@@ -13,10 +13,26 @@
 
 print("----------bsh3.py output----------")
 
+# Import modules
+from bs4 import BeautifulSoup
+import requests
+import re
+
 # BeautifulSoup request for webpage and boilerplate
+page = requests.get('http://collemc.people.si.umich.edu/data/bshw3StarterFile.html')
+soup = BeautifulSoup(page.text, 'html.parser')
 
 # Find text with "student"
+# Use RegEx to find all usages of 'student' and replace with 'AMAZING student'
+student_mentions = soup.find_all(text = re.compile('student'))
 
 # Add "AMAZING" to that text
+# For each usage:
+for usage in student_mentions:
+    # Create new string from existing text, and switch 'student' for 'AMAZING student'
+    replacement_text = usage.replace('student', 'AMAZING student')
+    usage.replace_with(replacement_text)
 
 # Replace photos
+
+# NEED TO SAVE FILE
