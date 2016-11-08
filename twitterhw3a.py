@@ -22,4 +22,4 @@ api = tweepy.API(auth)
 # Now we can Create Tweets, Delete Tweets, and Find Twitter Users
 
 # Send tweet here
-
+api.update_with_media('media/twitter_image.jpg', 'Homework 3! #UMSI-206 #Proj3')
