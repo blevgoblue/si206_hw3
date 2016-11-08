@@ -34,5 +34,16 @@ for usage in student_mentions:
     usage.replace_with(replacement_text)
 
 # Replace photos
+# Replace center photo w/ file in 'media' folder
+soup.select('#main img')[0]['src'] = 'media/twitter_image.jpg'
 
-# NEED TO SAVE FILE
+# Replace top logo 'src'
+soup.find('div', class_='logo').find('img')['src'] = 'media/logo.png'
+
+# Replace footer logo 'src'
+soup.find('div', class_='footer-logo').find('img')['src'] = 'media/logo.png'
+
+# Write to file
+output = open("output.html", "w")
+output.write(soup.prettify())
+output.close()
