@@ -25,8 +25,19 @@ api = tweepy.API(auth)
 
 # Now we can Create Tweets, Delete Tweets, and Find Twitter Users
 
-# Search for tweets
-for tweet in api.search("michigan"):
-    # Loop over all tweets in search results
-    # Print tweet
-    print(tweet.text, "\n\n")
+# Infinite loop unless quit
+while True:
+    print("\n--------------------\nNew Search\n--------------------\n")
+    # Ask for search
+    search_term = input("Input search term (q to quit): ")
+    # Quit
+    if search_term == 'q':
+        print("Goodbye!")
+        break
+
+    # Search for tweets
+    print("\n--------------------\nTweet List\n--------------------\n")
+    for tweet in api.search(search_term):
+        # Loop over all tweets in search results
+        # Print tweet
+        print(tweet.text, "\n\n")
