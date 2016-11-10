@@ -53,5 +53,6 @@ while True:
         subjectivity_list.append(analysis.sentiment.subjectivity)
 
     # Calculate and print averages
-    print(polarity_list)
-    print(subjectivity_list)
+    print("\n--------------------\nTweet Statistics Summary\n--------------------\n")
+    print("Average subjectivity is ",  sum(subjectivity_list) / len(subjectivity_list) )
+    print("Average polarity is ", sum(polarity_list) / len(polarity_list) )
