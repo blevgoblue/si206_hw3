@@ -35,9 +35,23 @@ while True:
         print("Goodbye!")
         break
 
+    # Aggregator lists
+    polarity_list = []
+    subjectivity_list = []
+    
     # Search for tweets
     print("\n--------------------\nTweet List\n--------------------\n")
     for tweet in api.search(search_term):
         # Loop over all tweets in search results
         # Print tweet
         print(tweet.text, "\n\n")
+        
+        # Run analysis like example on each tweet
+        analysis = TextBlob(tweet.text)
+        # Add values to aggregator list
+        polarity_list.append(analysis.sentiment.polarity)
+        subjectivity_list.append(analysis.sentiment.subjectivity)
+
+    # Calculate and print averages
+    print(polarity_list)
+    print(subjectivity_list)
