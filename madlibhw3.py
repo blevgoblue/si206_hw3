@@ -36,7 +36,7 @@ print("".join(original_text_list))
 
 print("\n\n----------Choose Words:----------\n\n")
 # 5 Parts of speech: Verb, Adjective, Noun, Plural Noun, Adverb.
-parts_of_speech = {"VB" : [0.10, "a Verb", ""], "JJ" : [0.10, "an Adjective", ""], "NN" : [0.15, "a Noun", ""], "NNS" : [0.15, "a Plural Noun", ""], "AD" : [0.10, "an Adverb", ""]}
+parts_of_speech = {"VB" : [0.10, "a Verb", ""], "JJ" : [0.10, "an Adjective", ""], "NN" : [0.15, "a Noun", ""], "NNS" : [0.15, "a Plural Noun", ""], "ADV" : [0.10, "an Adverb", ""]}
 
 # Ask for word of appropriate type
 # Loop over all tags and prompt for a word
@@ -44,11 +44,26 @@ for tag in parts_of_speech:
     # Store word in dict
     parts_of_speech[tag][2] = input("Please enter " + parts_of_speech[tag][1] + ": ")
 
-print (parts_of_speech)
+print("\n\n")
+
+# Identify parts of speech with nltk
+tagged_tokens = nltk.pos_tag(tokens)
 
 # Follow logic from example to change words
 
+# Aggregator list
+final_words = []
+
+for (word, tag) in tagged_tokens:
+    # If word isn't a replacement part of speech or random chance is greater than limit
+    if tag not in parts_of_speech or random.random() > parts_of_speech[tag][0]:
+        final_words.append(spaced(word))
+    # If word is a replacement and random chance less than or equal to limit
+    else:
+        final_words.append(spaced(parts_of_speech[tag][2]))
 
 # Print Madlib output
-
+print("----------MadLib text:----------\n\n")
+print("".join(final_words))
+                           
 print("\n\nEND*******")
