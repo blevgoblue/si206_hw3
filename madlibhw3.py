@@ -16,9 +16,32 @@ import random
 from nltk.book import *
 from nltk import word_tokenize,sent_tokenize
 
-print("START*******\n\n")
+# Copied from sample code
+def spaced(word):
+    if word in [",", ".", "?", "!", ":"]:
+        return word
+    else:
+        return " " + word
 
-print(text2)
+print("\n\nSTART*******\n\n")
 
+print("----------Original text:----------\n\n")
+
+# Isolate first 150 characters
+tokens = text2[:150]
+
+# Print original text using spaced
+original_text_list = map(lambda word: spaced(word), tokens)
+print("".join(original_text_list))
+
+print("\n\n----------Choose Words:----------\n\n")
+# 5 Parts of speech: Verb, Adjective, Noun, Plural Noun, Adverb
+
+# Ask for word of appropriate type
+
+# Follow logic from example to change words
+
+
+# Print Madlib output
 
 print("\n\nEND*******")

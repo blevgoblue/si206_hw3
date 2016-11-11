@@ -11,8 +11,6 @@
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
 
-print("----------bsh3.py output----------")
-
 # Import modules
 from bs4 import BeautifulSoup
 import requests
