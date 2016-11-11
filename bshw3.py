@@ -42,6 +42,6 @@ soup.find('div', class_='logo').find('img')['src'] = 'media/logo.png'
 soup.find('div', class_='footer-logo').find('img')['src'] = 'media/logo.png'
 
 # Write to file
-output = open("output.html", "w")
+output = open("part_b_output.html", "w")
 output.write(soup.prettify())
 output.close()
